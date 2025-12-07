@@ -10,4 +10,5 @@ export default defineConfig({
       },
     }),
   ],
+  base: '/Servey/', // Replace 'Servey' with your actual GitHub repository name
 })
