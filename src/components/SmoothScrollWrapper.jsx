@@ -4,16 +4,17 @@ import Lenis from '@studio-freight/lenis';
 export default function SmoothScrollWrapper({ children }) {
     useEffect(() => {
         const lenis = new Lenis({
-            duration: 0.6,
-            easing: (t) => 1 - Math.pow(1 - t, 3),
+            duration: 0.3,
+            easing: (t) => t,
             orientation: 'vertical',
             gestureOrientation: 'vertical',
             smoothWheel: true,
-            wheelMultiplier: 1.2,
+            wheelMultiplier: 1.5,
             smoothTouch: false,
             touchMultiplier: 2,
             infinite: false,
             normalizeWheel: true,
+            lerp: 0.15,
         });
 
         function raf(time) {

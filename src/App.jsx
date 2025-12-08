@@ -473,8 +473,8 @@ const PersonaSection = ({ value, onChange, onNext }) => {
             key={persona.id}
             onClick={() => onChange(persona.id)}
             className={`p-8 rounded-3xl text-left transition-all duration-300 relative overflow-hidden group perspective ${value === persona.id
-                ? 'bg-gradient-to-br from-teal-600 to-orange-600 text-white shadow-2xl shadow-teal-500/50 scale-105'
-                : 'bg-slate-800/50 backdrop-blur-sm border border-teal-500/20 hover:border-blue-500/50'
+              ? 'bg-gradient-to-br from-teal-600 to-orange-600 text-white shadow-2xl shadow-teal-500/50 scale-105'
+              : 'bg-slate-800/50 backdrop-blur-sm border border-teal-500/20 hover:border-blue-500/50'
               }`}
             variants={item}
             whileHover={{ scale: 1.05, rotateY: 5, z: 50 }}
@@ -578,8 +578,8 @@ const ChallengeSection = ({ value, onChange, onNext }) => {
             key={challenge}
             onClick={() => onChange(challenge)}
             className={`p-6 rounded-2xl text-lg font-medium text-left transition-all duration-300 ${value === challenge
-                ? 'bg-gradient-to-br from-amber-600 to-orange-600 text-white shadow-2xl shadow-amber-500/50 scale-105'
-                : 'bg-slate-800/50 backdrop-blur-sm text-slate-200 border border-amber-500/20 hover:border-pink-500/50'
+              ? 'bg-gradient-to-br from-amber-600 to-orange-600 text-white shadow-2xl shadow-amber-500/50 scale-105'
+              : 'bg-slate-800/50 backdrop-blur-sm text-slate-200 border border-amber-500/20 hover:border-pink-500/50'
               }`}
             initial={{ opacity: 0, x: i % 2 === 0 ? -50 : 50 }}
             animate={inView ? { opacity: 1, x: 0 } : { opacity: 0, x: i % 2 === 0 ? -50 : 50 }}
@@ -663,8 +663,8 @@ const RoleSection = ({ value, onChange, onNext }) => {
             key={role.text}
             onClick={() => onChange(role.text)}
             className={`w-full p-6 rounded-2xl text-lg font-medium text-left flex items-center gap-4 transition-all duration-300 ${value === role.text
-                ? 'bg-gradient-to-r from-green-600 to-amber-600 text-white shadow-2xl shadow-teal-500/50'
-                : 'bg-slate-800/50 backdrop-blur-sm text-slate-200 border border-teal-500/20 hover:border-green-500/50'
+              ? 'bg-gradient-to-r from-green-600 to-amber-600 text-white shadow-2xl shadow-teal-500/50'
+              : 'bg-slate-800/50 backdrop-blur-sm text-slate-200 border border-teal-500/20 hover:border-green-500/50'
               }`}
             initial={{ opacity: 0, x: -50 }}
             animate={inView ? { opacity: 1, x: 0 } : { opacity: 0, x: -50 }}
@@ -875,8 +875,8 @@ const SupportSection = ({ values, onChange, onNext }) => {
             key={support}
             onClick={() => toggleSupport(support)}
             className={`p-6 rounded-2xl text-lg font-medium transition-all duration-300 relative overflow-hidden ${values.includes(support)
-                ? 'bg-gradient-to-br from-cyan-600 to-amber-600 text-white shadow-2xl shadow-sky-500/50'
-                : 'bg-slate-800/50 backdrop-blur-sm text-slate-200 border border-sky-500/20 hover:border-cyan-500/50'
+              ? 'bg-gradient-to-br from-cyan-600 to-amber-600 text-white shadow-2xl shadow-sky-500/50'
+              : 'bg-slate-800/50 backdrop-blur-sm text-slate-200 border border-sky-500/20 hover:border-cyan-500/50'
               }`}
             initial={{ opacity: 0, y: 50 }}
             animate={inView ? { opacity: 1, y: 0 } : { opacity: 0, y: 50 }}
@@ -996,8 +996,8 @@ const ReflectionSection = ({ value, onChange, onSubmit }) => {
           onClick={onSubmit}
           disabled={!value}
           className={`px-12 py-5 rounded-full font-bold text-xl shadow-2xl transform transition-all duration-300 ${value
-              ? 'bg-gradient-to-r from-orange-600 via-pink-600 to-orange-600 text-white hover:shadow-purple-500/70'
-              : 'bg-slate-700 text-slate-500 cursor-not-allowed'
+            ? 'bg-gradient-to-r from-orange-600 via-pink-600 to-orange-600 text-white hover:shadow-purple-500/70'
+            : 'bg-slate-700 text-slate-500 cursor-not-allowed'
             }`}
         >
           <span className="flex items-center gap-2">
@@ -1079,11 +1079,48 @@ const ThankYouSection = () => {
         You can close this page anytime or refresh to explore again.
       </motion.p>
 
+      {/* Optional Contact Form */}
+      <motion.div
+        className="mt-12 bg-slate-800/50 backdrop-blur-sm rounded-3xl p-8 border border-orange-600/20"
+        initial={{ opacity: 0, y: 30 }}
+        animate={inView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
+        transition={{ duration: 0.6, delay: 0.6 }}
+      >
+        <h3 className="text-xl font-semibold text-white mb-2">Want to stay connected?</h3>
+        <p className="text-slate-400 text-sm mb-6">(Optional - Share your details if you'd like to hear from us)</p>
+
+        <div className="space-y-4">
+          <input
+            type="text"
+            placeholder="Your Name (optional)"
+            className="w-full px-5 py-3 rounded-full bg-slate-900/50 border border-orange-600/30 focus:border-orange-600 focus:outline-none text-white placeholder-slate-500 transition-all"
+          />
+          <input
+            type="email"
+            placeholder="Your Email (optional)"
+            className="w-full px-5 py-3 rounded-full bg-slate-900/50 border border-orange-600/30 focus:border-orange-600 focus:outline-none text-white placeholder-slate-500 transition-all"
+          />
+          <button
+            className="w-full px-6 py-3 bg-gradient-to-r from-orange-600 to-amber-600 text-white rounded-full font-semibold shadow-lg shadow-orange-600/30 hover:shadow-orange-600/50 transition-all hover:scale-105"
+            onClick={() => {
+              confetti({
+                particleCount: 50,
+                spread: 60,
+                origin: { y: 0.7 },
+                colors: ['#ea580c', '#f97316', '#fbbf24']
+              });
+            }}
+          >
+            Submit ✨
+          </button>
+        </div>
+      </motion.div>
+
       <motion.div
         className="mt-12 flex justify-center gap-6 flex-wrap"
         initial={{ opacity: 0 }}
         animate={inView ? { opacity: 1 } : { opacity: 0 }}
-        transition={{ duration: 0.8, delay: 0.6 }}
+        transition={{ duration: 0.8, delay: 0.7 }}
       >
         {['💭', '🌱', '✨', '🎯', '💡', '🚀'].map((emoji, i) => (
           <motion.div
